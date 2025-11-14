@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopSmart - Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo"><a href="index.html">ShopSmart</a></h1>
+      <nav class="main-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
+        <ul id="nav-menu">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li class="menu-sep"></li>
+          <li><a href="login.html" class="btn btn-link">Login</a></li>
+          <li><a href="register.html" class="btn btn-primary">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Your one-stop shop for everything</h2>
+        <p>Discover great deals on millions of products. Fast delivery, easy returns.</p>
+        <a href="products.html" class="btn btn-primary">Shop Now</a>
+      </div>
+    </section>
+
+    <section class="features grid-3">
+      <article class="card">
+        <h3>Orders</h3>
+        <p>Track your purchases and view order history.</p>
+        <a href="orders.html" class="btn btn-link">View Orders</a>
+      </article>
+      <article class="card">
+        <h3>Wishlist</h3>
+        <p>Save items you love and get back to them anytime.</p>
+        <a href="wishlist.html" class="btn btn-link">View Wishlist</a>
+      </article>
+      <article class="card">
+        <h3>Customer Care</h3>
+        <p>We are here to help 24/7 for returns, refunds, and more.</p>
+        <a href="support.html" class="btn btn-link">Get Support</a>
+      </article>
+    </section>
+
+    <section class="reviews">
+      <h2>Latest Reviews</h2>
+      <div id="reviews-list" class="reviews-list"></div>
+      <form id="review-form" class="card form">
+        <h3>Leave a comment & review</h3>
+        <div class="form-row">
+          <label for="rev-name">Name</label>
+          <input id="rev-name" name="name" type="text" required maxlength="50" />
+          <span class="error" data-for="rev-name"></span>
+        </div>
+        <div class="form-row">
+          <label for="rev-rating">Rating (1-5)</label>
+          <input id="rev-rating" name="rating" type="number" min="1" max="5" required />
+          <span class="error" data-for="rev-rating"></span>
+        </div>
+        <div class="form-row">
+          <label for="rev-comment">Comment</label>
+          <textarea id="rev-comment" name="comment" required minlength="5" maxlength="300"></textarea>
+          <span class="error" data-for="rev-comment"></span>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit Review</button>
+      </form>
+    </section>
+
+    <section class="reports">
+      <h2>Reporting</h2>
+      <div class="grid-3">
+        <div class="card stat">
+          <div class="stat-number" id="report-orders">0</div>
+          <div class="stat-label">Total Orders</div>
+        </div>
+        <div class="card stat">
+          <div class="stat-number" id="report-wishlist">0</div>
+          <div class="stat-label">Wishlist Items</div>
+        </div>
+        <div class="card stat">
+          <div class="stat-number" id="report-reviews">0</div>
+          <div class="stat-label">Reviews</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> ShopSmart. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

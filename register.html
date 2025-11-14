@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopSmart - Register</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo"><a href="index.html">ShopSmart</a></h1>
+      <nav class="main-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
+        <ul id="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li class="menu-sep"></li>
+          <li><a href="login.html" class="btn btn-link">Login</a></li>
+          <li><a href="register.html" class="btn btn-primary active">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card form" style="max-width: 520px; margin: 24px auto;">
+      <h2>Create your account</h2>
+      <form id="register-form" novalidate>
+        <div class="form-row">
+          <label for="reg-name">Full Name</label>
+          <input id="reg-name" type="text" required minlength="2" maxlength="50" />
+          <span class="error" data-for="reg-name"></span>
+        </div>
+        <div class="form-row">
+          <label for="reg-email">Email</label>
+          <input id="reg-email" type="email" required />
+          <span class="error" data-for="reg-email"></span>
+        </div>
+        <div class="form-row">
+          <label for="reg-pass">Password</label>
+          <input id="reg-pass" type="password" required minlength="6" />
+          <span class="error" data-for="reg-pass"></span>
+        </div>
+        <div class="form-row">
+          <label for="reg-confirm">Confirm Password</label>
+          <input id="reg-confirm" type="password" required minlength="6" />
+          <span class="error" data-for="reg-confirm"></span>
+        </div>
+        <button class="btn btn-primary" type="submit">Create Account</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> ShopSmart. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

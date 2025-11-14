@@ -1,0 +1,81 @@
+* { box-sizing: border-box; }
+:root {
+  --primary: #2563eb;
+  --bg: #0b1020;
+  --surface: #121a2b;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --card: #101827;
+  --success: #10b981;
+  --danger: #ef4444;
+}
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: linear-gradient(180deg, var(--bg), #0f172a);
+  color: var(--text);
+}
+.container { width: min(1100px, 92%); margin: 0 auto; }
+.site-header {
+  position: sticky; top: 0; z-index: 1000;
+  background: rgba(16, 24, 39, 0.8);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid #1f2937;
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.logo a { color: var(--text); text-decoration: none; }
+.main-nav ul { list-style: none; display: flex; gap: 12px; padding: 0; margin: 0; align-items: center; }
+.main-nav a { color: var(--text); text-decoration: none; padding: 8px 12px; border-radius: 8px; }
+.main-nav a.active, .main-nav a:hover { background: #1f2937; }
+.nav-toggle { display: none; }
+.menu-sep { width: 1px; height: 24px; background: #233047; margin-inline: 4px; }
+
+.hero { margin: 24px 0 12px; padding: 48px; border-radius: 16px; background: radial-gradient(1000px 400px at 0% 0%, #0e1a34, transparent), #0f172a; border: 1px solid #1f2937; }
+.hero h2 { margin: 0 0 8px; font-size: 32px; }
+.hero p { color: var(--muted); margin-bottom: 16px; }
+
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.card { background: var(--card); border: 1px solid #1f2937; border-radius: 12px; padding: 16px; }
+
+.btn { display: inline-block; padding: 10px 14px; border-radius: 10px; text-decoration: none; cursor: pointer; border: 1px solid transparent; }
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { filter: brightness(1.1); }
+.btn-link { background: transparent; border-color: #1f2937; color: var(--text); }
+.btn-link:hover { background: #1f2937; }
+
+.form .form-row { display: grid; gap: 6px; margin-bottom: 12px; }
+.form input, .form textarea, .form select { padding: 10px 12px; border-radius: 8px; border: 1px solid #273246; background: #0b1222; color: var(--text); }
+.form .error { color: var(--danger); font-size: 12px; min-height: 16px; }
+
+.reviews { margin-top: 24px; }
+.reviews-list { display: grid; gap: 12px; margin-bottom: 16px; }
+.review-item { padding: 12px; border-radius: 10px; background: #0e1628; border: 1px solid #1f2937; }
+.review-meta { display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: 14px; }
+
+.stat { text-align: center; }
+.stat-number { font-size: 28px; font-weight: 700; }
+.stat-label { color: var(--muted); }
+
+.site-footer { margin-top: 40px; border-top: 1px solid #1f2937; }
+.site-footer .container { padding: 16px 0; }
+
+.products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.product-card { display: grid; gap: 10px; }
+.product-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; }
+.product-card .price { color: var(--success); font-weight: 600; }
+.product-card .actions { display: flex; gap: 8px; }
+
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { border-bottom: 1px solid #1f2937; padding: 10px; text-align: left; }
+
+.support-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+@media (max-width: 768px){
+  .grid-3 { grid-template-columns: 1fr; }
+  .support-grid { grid-template-columns: 1fr; }
+  .main-nav ul { display: none; position: absolute; right: 4%; top: 56px; background: var(--card); padding: 10px; border-radius: 10px; flex-direction: column; align-items: flex-start; }
+  .main-nav ul[aria-expanded="true"], .main-nav[aria-expanded="true"] ul, .main-nav .open { display: flex; }
+  .nav-toggle { display: inline-block; background: transparent; color: var(--text); border: 1px solid #1f2937; border-radius: 8px; padding: 8px 10px; }
+  .menu-sep { display: none; }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopSmart - Contact Us</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo"><a href="index.html">ShopSmart</a></h1>
+      <nav class="main-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
+        <ul id="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html" class="active">Contact Us</a></li>
+          <li class="menu-sep"></li>
+          <li><a href="login.html" class="btn btn-link">Login</a></li>
+          <li><a href="register.html" class="btn btn-primary">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="support-grid">
+      <div class="card">
+        <h2>Customer Care</h2>
+        <p>We are available 24/7. Choose a topic to get help:</p>
+        <ul>
+          <li>Orders and Shipping</li>
+          <li>Returns and Refunds</li>
+          <li>Payment Issues</li>
+          <li>Product Support</li>
+          <li>Account & Security</li>
+        </ul>
+      </div>
+      <form id="support-form" class="card form">
+        <h3>Contact Support</h3>
+        <div class="form-row">
+          <label for="sup-name">Full Name</label>
+          <input id="sup-name" name="name" type="text" required minlength="2" />
+          <span class="error" data-for="sup-name"></span>
+        </div>
+        <div class="form-row">
+          <label for="sup-email">Email</label>
+          <input id="sup-email" name="email" type="email" required />
+          <span class="error" data-for="sup-email"></span>
+        </div>
+        <div class="form-row">
+          <label for="sup-topic">Topic</label>
+          <select id="sup-topic" name="topic" required>
+            <option value="">Select a topic</option>
+            <option>Orders and Shipping</option>
+            <option>Returns and Refunds</option>
+            <option>Payment Issues</option>
+            <option>Product Support</option>
+            <option>Account & Security</option>
+          </select>
+          <span class="error" data-for="sup-topic"></span>
+        </div>
+        <div class="form-row">
+          <label for="sup-message">Message</label>
+          <textarea id="sup-message" name="message" required minlength="10"></textarea>
+          <span class="error" data-for="sup-message"></span>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit Ticket</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> ShopSmart. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // minimal validation for support form
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('support-form');
+      const setErr = (id, msg) => {
+        const span = form.querySelector(`.error[data-for="${id}"]`);
+        if(span) span.textContent = msg || '';
+      };
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = form.querySelector('#sup-name').value.trim();
+        const email = form.querySelector('#sup-email').value.trim();
+        const topic = form.querySelector('#sup-topic').value.trim();
+        const message = form.querySelector('#sup-message').value.trim();
+        let valid = true;
+        if(name.length < 2){ setErr('sup-name', 'Enter at least 2 characters.'); valid = false; } else setErr('sup-name');
+        if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ setErr('sup-email', 'Enter a valid email.'); valid = false; } else setErr('sup-email');
+        if(!topic){ setErr('sup-topic', 'Please select a topic.'); valid = false; } else setErr('sup-topic');
+        if(message.length < 10){ setErr('sup-message', 'Enter at least 10 characters.'); valid = false; } else setErr('sup-message');
+        if(!valid) return;
+        alert('Support ticket submitted (demo).');
+        form.reset();
+      });
+    });
+  </script>
+  <script src="scripts.js"></script>
+</body>
+</html>
